@@ -27,10 +27,14 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 
 builder.Services.AddScoped<ITeamRepository, TeamRepository>();
 
+builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
+
 
 // ── Services ──
 
 builder.Services.AddScoped<ITeamService, TeamService>();
+
+builder.Services.AddScoped<IPlayerService, PlayerService>();
 
 
 // ── AutoMapper ──
