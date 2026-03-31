@@ -24,6 +24,8 @@ public class TournamentService : ITournamentService
 
     private readonly ILogger<TournamentService> _logger;
 
+    private readonly ITournamentSponsorRepository _tournamentSponsorRepository;
+
 
     public TournamentService(
 
@@ -33,7 +35,9 @@ public class TournamentService : ITournamentService
 
     ITeamRepository teamRepository,
 
-    ILogger<TournamentService> logger)
+    ILogger<TournamentService> logger,
+    
+    ITournamentSponsorRepository tournamentSponsorRepository)
 
     {
 
@@ -44,6 +48,8 @@ public class TournamentService : ITournamentService
         _teamRepository = teamRepository;
 
         _logger = logger;
+
+        _tournamentSponsorRepository = tournamentSponsorRepository;
 
     }
 
@@ -332,5 +338,6 @@ public class TournamentService : ITournamentService
         return tournamentTeams.Select(tt => tt.Team);
 
     }
+    
 
 }
