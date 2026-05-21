@@ -111,7 +111,7 @@ public class MatchLineupController : ControllerBase
         {
             return StatusCode(500, new
             {
-                message = "Error al consultar la alineación del equipo para este partido.",
+                message = "Error al consultar la alineación del equipo para este partido",
                 detail = ex.Message
             });
         }
