@@ -1,15 +1,17 @@
 using Microsoft.EntityFrameworkCore;
+using SportsLeague.Application.Services;
 
 using SportsLeague.DataAccess.Context;
 
 using SportsLeague.DataAccess.Repositories;
+using SportsLeague.DataAccess.Seeders;
 using SportsLeague.Domain.Helpers;
 using SportsLeague.Domain.Interfaces.Repositories;
 
 using SportsLeague.Domain.Interfaces.Services;
 
 using SportsLeague.Domain.Services;
-using SportsLeague.DataAccess.Seeders;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +45,8 @@ builder.Services.AddScoped<IMatchResultRepository, MatchResultRepository>();
 builder.Services.AddScoped<IGoalRepository, GoalRepository>();
 
 builder.Services.AddScoped<ICardRepository, CardRepository>();
+builder.Services.AddScoped<IMatchLineupRepository, MatchLineupRepository>();
+
 
 // ── Services ──
 
@@ -59,6 +63,7 @@ builder.Services.AddScoped<IMatchEventService, MatchEventService>();
 
 builder.Services.AddScoped<MatchValidationHelper>();
 builder.Services.AddScoped<IStandingsService, StandingsService>();
+builder.Services.AddScoped<IMatchLineupService, MatchLineupService>();
 // ── AutoMapper ──
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
